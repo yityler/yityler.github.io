@@ -7,11 +7,6 @@
   <title>Tyler Yi | Portfolio</title>
   <meta name="description"
     content="Tyler Yi's portfolio featuring robotics leadership, engineering work, polo, and photography." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cinzel:wght@500;600;700;800&display=swap"
-    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
 </head>
@@ -33,7 +28,8 @@
     </button>
 
     <nav class="site-nav">
-      <a class="is-active" href="index.html">Home / About</a>
+      <a class="is-active" href="index.html">About</a>
+      <a href="#research">Research</a>
       <a href="#robotics">Robotics</a>
       <a href="#polo">Polo</a>
       <a href="#gallery">Gallery</a>
@@ -44,12 +40,12 @@
   <main>
     <section class="hero section-shell">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Robotics Captain, Engineer, Athlete</p>
-        <p class="script-line">designing with precision, leading with heart</p>
+        <p class="eyebrow">AI Researcher · Robotics Engineer · Athlete</p>
+        <p class="script-line">Designing with precision, leading with heart.</p>
         <h1>Tyler Yi</h1>
         <p class="hero-lead">
-          Lead Mechanical Engineer for VEX Team 6546, dedicated mentor, and competitive polo
-          player based in Singapore.
+          AI research contributor, Lead Mechanical Engineer for VEX Team 6546, mentor, and
+          competitive polo player based in Singapore.
         </p>
 
         <div class="hero-actions">
@@ -58,9 +54,9 @@
         </div>
 
         <div class="hero-badges">
+          <span>3× NeurIPS 2026 Workshops</span>
           <span>2025 VEX Worlds</span>
           <span>SAS Robotics Captain</span>
-          <span>Mechanical Officer</span>
         </div>
       </div>
 
@@ -129,6 +125,125 @@
             composition, and the confidence to move decisively.
           </p>
         </article>
+      </div>
+    </section>
+
+    <section class="section-shell research-section" id="research">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Research</p>
+        <h2>Research across AI and mechanical engineering.</h2>
+        <p class="section-copy">
+          Two threads of work: making large-language-model reasoning far more efficient, and a
+          finite-element study of vibration in electric-vehicle traction motors.
+        </p>
+      </div>
+
+      <div class="research-grid">
+        <article class="research-main reveal">
+          <span class="timeline-card__tag">Algoverse AI Research</span>
+          <h3>PeerConf: Self-Calibrating Early Stopping for Efficient Parallel LLM Reasoning</h3>
+          <p>
+            Sampling many reasoning traces in parallel and voting on the answer makes LLMs far more
+            accurate on hard math &mdash; but standard self-consistency runs every trace to the end,
+            paying full price even for traces that add nothing. PeerConf (Peer Think with Confidence)
+            is a warm-up-free, self-calibrating confidence filter: it estimates thresholds on the fly
+            from traces that finish during the run, so filtering starts at the very first finisher
+            with no wasted calibration phase.
+          </p>
+          <p>
+            A trace that clears its confidence threshold and closes its own reasoning commits early,
+            casts its vote, and frees its compute. On MATH500, AIME25, and HMMT25 with DeepSeek-R1-8B
+            and GPT-OSS-20B, PeerConf matches or exceeds self-consistency accuracy while reducing
+            token consumption by <strong>53.1% to 79.8%</strong> at 32 traces.
+          </p>
+          <div class="research-role">
+            <p><strong>My role.</strong> Co-author (Tyler Yi). I led the project's data
+              visualizations and the methodology figure &mdash; turning raw experiment runs into the
+              figures that carry the paper's results, with controlled, honest comparisons.</p>
+          </div>
+        </article>
+
+        <aside class="research-meta reveal reveal-delay-1">
+          <div class="research-meta__row">
+            <span>Venue</span>
+            <strong>NeurIPS 2026 &mdash; MATH-AI · PriGM · NewInML</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>Affiliation</span>
+            <strong>Algoverse AI Research</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>Focus</span>
+            <strong>Efficient parallel LLM reasoning</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>My Role</span>
+            <strong>Co-author &middot; figures &amp; methodology</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>Benchmarks</span>
+            <strong>MATH500 · AIME25 · HMMT25</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>Models</span>
+            <strong>DeepSeek-R1-8B · GPT-OSS-20B</strong>
+          </div>
+          <div class="research-links">
+            <a class="research-link" href="assets/peerconf.pdf" target="_blank" rel="noreferrer">Read the paper (PDF)</a>
+            <a class="research-link" href="https://openreview.net/forum?id=p78rKPekic" target="_blank" rel="noreferrer">OpenReview</a>
+            <a class="research-link" href="https://github.com/mofe-stack/PeerConf" target="_blank" rel="noreferrer">Code</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="research-grid">
+        <article class="research-main reveal">
+          <span class="timeline-card__tag">CCIR · mentored at UC Berkeley</span>
+          <h3>Structural Vibration of Axial-Flux and Radial-Flux PM Synchronous Motors for EV Traction: A Finite-Element Comparison</h3>
+          <p>
+            Structural vibration is a key concern in electric-vehicle traction motors, and
+            radial-flux and axial-flux designs direct their electromagnetic forces along different
+            axes. Using matched finite-element models &mdash; held to the same mass, pole count, and
+            current density &mdash; this study compares the first compliant part in each machine's
+            force path: a radial-flux stator and an axial-flux rotor disc.
+          </p>
+          <p>
+            The analysis shows the axial-flux disc's out-of-plane displacement far exceeds the
+            stator's, driven mainly by structural compliance rather than force magnitude, and
+            identifies a resonance crossing just 9.5% above rated speed. The takeaway: axial-flux
+            vibration is governed first by rotor structural design, not by electromagnetic force.
+          </p>
+          <div class="research-role">
+            <p><strong>My role.</strong> Sole author (Tyler Yi), conducted under the mentorship of
+              Dr. Anwar at the University of California, Berkeley, through the CCIR program.</p>
+          </div>
+        </article>
+
+        <aside class="research-meta reveal reveal-delay-1">
+          <div class="research-meta__row">
+            <span>Program</span>
+            <strong>CCIR &middot; UC Berkeley mentorship</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>Field</span>
+            <strong>Electric-machine design &amp; FEA</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>My Role</span>
+            <strong>Sole author</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>Methods</span>
+            <strong>Finite-element analysis · modal &amp; harmonic study</strong>
+          </div>
+          <div class="research-meta__row">
+            <span>Status</span>
+            <strong>Manuscript, 2026</strong>
+          </div>
+          <div class="research-links">
+            <a class="research-link" href="assets/motor-vibration-fea.pdf" target="_blank" rel="noreferrer">Read the paper (PDF)</a>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -299,23 +414,27 @@
         <div class="evolution-slider__shell">
           <div class="evolution-slider__frame">
             <div class="evolution-slider__placeholder" data-slider-empty>
-              <p class="eyebrow">Ready</p>
-              <h3>Waiting for image 1</h3>
+              <p class="eyebrow">Robot Progress</p>
+              <h3>Nine robots, three seasons</h3>
               <p>
-                Send the first robot image and the description you want beside it, and I will
-                place it into the timeline in order.
+                A season-by-season look at how our robots evolved &mdash; from the first catapult
+                build to our most competitive machine yet.
               </p>
             </div>
             <div class="evolution-slider__image-wrap" data-slider-frame>
-              <img class="evolution-slider__image" data-slider-image src="" alt="" />
+              <img class="evolution-slider__image" data-slider-image
+                src="assets/robot-sequence-01.png"
+                alt="The first robot fabricated by the team during the Over Under season." />
             </div>
           </div>
           <div class="evolution-slider__caption" data-slider-caption>
-            <span class="timeline-card__tag" data-slider-stage>Awaiting Sequence</span>
-            <h3 data-slider-title>Ready for your first build image</h3>
+            <span class="timeline-card__tag" data-slider-stage>November 2023</span>
+            <h3 data-slider-title>Robot #1</h3>
             <p data-slider-text>
-              Once you send the first image and its description, I will start the robot evolution
-              slider and keep each later step in the exact order you want.
+              This was the first robot our team fabricated during the Over Under season. At this
+              stage we were still developing our design language, but we pulled off a working
+              catapult and built something that genuinely functioned in competition &mdash; the
+              foundation for everything that came after.
             </p>
           </div>
         </div>
