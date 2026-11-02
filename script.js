@@ -190,35 +190,21 @@ if (evolutionSlider) {
       return;
     }
 
-    const frameWidth = imageFrame.clientWidth || imageFrame.getBoundingClientRect().width;
-    const referenceSlide = slides[Math.floor(slides.length / 2)];
-    const referenceDimensions = referenceSlide ? imageDimensions.get(referenceSlide.image) : null;
-    let referenceImageHeight = 0;
     let maxCaptionHeight = 0;
 
     slides.forEach((slide) => {
       maxCaptionHeight = Math.max(maxCaptionHeight, measureCaptionHeight(slide));
     });
 
-    if (referenceDimensions && frameWidth) {
-      referenceImageHeight = frameWidth * (referenceDimensions.height / referenceDimensions.width);
+    // The image box now holds a constant 4:3 aspect ratio in CSS, so only the
+    // caption needs reserving: pin it to the tallest slide so changing slides
+    // never resizes the block and shoves the rest of the page around.
+    if (maxCaptionHeight) {
+      captionNode.style.minHeight = `${Math.ceil(maxCaptionHeight)}px`;
     }
-
-    if (referenceImageHeight) {
-      const reservedHeight = Math.ceil(referenceImageHeight);
-      imageFrame.style.height = `${reservedHeight}px`;
-      imageFrame.style.minHeight = `${reservedHeight}px`;
-      emptyNode.style.height = `${reservedHeight}px`;
-      emptyNode.style.minHeight = `${reservedHeight}px`;
-    }
-
-    captionNode.style.minHeight = "0px";
 
     if (shellNode) {
-      shellNode.style.minHeight = `${Math.max(
-        Math.ceil(referenceImageHeight),
-        Math.ceil(maxCaptionHeight)
-      )}px`;
+      shellNode.style.minHeight = "";
     }
   };
 
